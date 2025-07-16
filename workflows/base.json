@@ -1,0 +1,119 @@
+{
+  "10": {
+    "inputs": {
+      "ckpt_name": "%CHECKPOINT%"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Checkpoint加载器(简易)"
+    }
+  },
+  "11": {
+    "inputs": {
+      "text": "embedding:easynegative,mammal, anthro, furry, ambiguous form, feral, semi-anthro, simple background, censored, blush, thick thighs, feet out of frame, wide hips,huge ass, worst quality, old, early, low quality, lowres, signature, username, logo, bad hands, mutated hands, worst aesthetic, ai-generated,watermark,signature",
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      },
+      "clip": [
+        "10",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码器"
+    }
+  },
+  "12": {
+    "inputs": {
+      "samples": [
+        "31",
+        0
+      ],
+      "vae": [
+        "10",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "14": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "保存图像"
+    }
+  },
+  "31": {
+    "inputs": {
+      "seed": %SEED%,
+      "steps": %STEPS%,
+      "cfg": %CFG%,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "10",
+        0
+      ],
+      "positive": [
+        "39",
+        0
+      ],
+      "negative": [
+        "11",
+        0
+      ],
+      "latent_image": [
+        "40",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "39": {
+    "inputs": {
+      "text": "%PROMPT%",
+      "speak_and_recognation": {
+        "__value__": [
+          false,
+          true
+        ]
+      },
+      "clip": [
+        "10",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码器"
+    }
+  },
+  "40": {
+    "inputs": {
+      "width": %WIDTH%,
+      "height": %HEIGHT%,
+      "batch_size": %BATCH_SIZE%
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "空Latent"
+    }
+  }
+}

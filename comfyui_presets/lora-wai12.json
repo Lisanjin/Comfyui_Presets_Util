@@ -1,0 +1,12 @@
+{
+    "presets_name": "lora-wai12",
+    "latent_width": 1216,
+    "latent_height": 832,
+    "batch_size": 1,
+    "seed": -1,
+    "steps": 20,
+    "cfg": 3.0,
+    "checkpoint": "waiNSFWIllustrious_v120.safetensors",
+    "lora": "amalilith223.safetensors",
+    "prompt": "正面提示词"
+}

@@ -1,0 +1,88 @@
+{
+  "quality": [
+    {
+      "name": "noob默认",
+      "value": "very awa, masterpiece, best quality, year 2024, newest, highres, absurdres, light particles,"
+    }
+  ],
+  "style": [
+    {
+      "name": "ponzu/hong",
+      "value": "artist:ponzu \\(catponz\\),artist: hong \\(white spider\\)"
+    },
+    {
+      "name": "村上水軍",
+      "value": "artist:murakami_suigun"
+    },
+    {
+      "name": "八宝備仁",
+      "value": "artist:happoubi_jin"
+    }
+  ],
+  "character": [
+    {
+      "name": "菲林",
+      "value": "filene \\(shadowverse\\),aqua hair,bare shoulders,belt,black thighhighs,blue hair,boots,breasts,cleavage,dragon girl,dragon tail,dress,elbow gloves,flower,frills,garter straps,gauntlets,gloves,hair flower,blue flower,hair ornament,horns,long hair,medium breasts,pink eyes,pointy ears,skirt,,tail,thighhighs,white dress,"
+    },
+    {
+      "name": "雪乃",
+      "value": "yukinoshita_yukino ,black hair,black jacket,black thighhighs,blazer,blue eyes,blush,hair ribbon,jacket,long hair,long sleeves,miniskirt,neck ribbon,panties,pantyshot,plaid clothes,plaid skirt,pleated skirt,red ribbon,ribbon,school uniform,skirt,sobu high school uniform,thighhighs,thighs,winter uniform"
+    },
+    {
+      "name": "狂三",
+      "value": "tokisaki_kurumi,asymmetrical hair,bare shoulders,black choker,black dress,black sleeves,black thighhighs,boots,choker,detached sleeves,dress,frilled choker,frilled hairband,frilled sleeves,frills,hairband,heterochromia,knee boots,lolita fashion,lolita hairband,long hair,medium breasts,orange dress,red eyes,sideboob,skirt,thighhighs,twintails,two-tone dress,uneven twintails,yellow eyes"
+    },
+    {
+      "name": "雾枝-礼服",
+      "value": "kagarino kirie,bare shoulders,strap slip,nipples,black choker,black dress,black flower,black garter straps,black gloves,black ribbon,black rose,black shoes,black thighhighs,blunt bangs,breasts,choker,collarbone,dress,flower choker,garter straps,gloves,hair ribbon,high heels,lace-trimmed thighhighs,lace trim,light blush,long hair,off shoulder,red eyes,red flower,red rose,ribbon,rose,sash,sleeveless,sleeveless dress,small breasts,spaghetti strap,thighhighs,thighs,twintails,very long hair,white hair,white sash,zettai ryouiki"
+    }
+  ],
+  "pose": [
+    {
+      "name": "后背位",
+      "value": "1boy,1girl,breasts,doggystyle,nipples,penis,sex,sex from behind,"
+    },
+    {
+      "name": "骑乘",
+      "value": "penis,pov,sex，cowgirl position,erection,girl on top,solo focus,straddling,tears,vaginal,"
+    }
+  ],
+  "extra": [
+    {
+      "name": "运动线",
+      "value": "motion_lines"
+    },
+    {
+      "name": "腹部隆起",
+      "value": "stomach_bulge"
+    },
+    {
+      "name": "空洞眼神",
+      "value": "empty_eyes"
+    },
+    {
+      "name": "阿黑颜",
+      "value": "ahegao"
+    },
+    {
+      "name": "翻白眼",
+      "value": "rolling eyes"
+    },
+    {
+      "name": "无表情",
+      "value": "expressionless"
+    },
+    {
+      "name": "阴茎",
+      "value": "penis"
+    },
+    {
+      "name": "孕妇",
+      "value": "pregnant"
+    },
+    {
+      "name": "射精溢出",
+      "value": "cum_overflow"
+    }
+  ]
+}
