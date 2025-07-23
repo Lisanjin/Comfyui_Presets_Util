@@ -1,2 +1,4 @@
 *.exe
 /prompts
+/comfyui_presets
+/__pycache__

@@ -395,6 +395,7 @@ class MainApp(ttkb.Window):
             return
 
         self.prompt_presets[category].append({"name": name, "value": value})
+        self.prompt_presets[category].sort(key=lambda p: p["name"].lower())  # 自动排序
         DataManager.save_prompt_presets(self.prompt_presets)
         self.refresh_prompt_ui(category)
         auto_close_message(self, "成功", f"已新增预设: {name}")
@@ -424,6 +425,7 @@ class MainApp(ttkb.Window):
         for i, preset in enumerate(self.prompt_presets[category]):
             if preset["name"] == selected_name:
                 self.prompt_presets[category][i] = {"name": new_name, "value": new_value}
+                self.prompt_presets[category].sort(key=lambda p: p["name"].lower())  # 自动排序
                 DataManager.save_prompt_presets(self.prompt_presets)
                 self.refresh_prompt_ui(category, new_name)
                 auto_close_message(self, "成功", f"已修改预设: {new_name}")
@@ -493,7 +495,7 @@ class MainApp(ttkb.Window):
                 selected_indices = self.extra_listbox.curselection()
                 if selected_indices:
                     extras = [self.extra_listbox.get(i) for i in selected_indices]
-                    key_parts.append("_".join(extras)) # 用下划线连接多个extra名称
+                    key_parts.append("-".join(extras))
             else:
                 key_parts.append(self.prompt_vars[cat].get())
         
@@ -544,13 +546,46 @@ class MainApp(ttkb.Window):
             self.generated_listbox.insert(tk.END, key)
 
     def on_generated_select(self, event):
-        """当已生成prompt被选中时，在预览框中显示其内容。"""
+        """当已生成prompt被选中时，在预览框中显示其内容，并同步左侧选择器。"""
         sel = self.generated_listbox.curselection()
         if sel:
             key = self.generated_listbox.get(sel[0])
             full_prompt = self.generated_prompts.get(key, "")
             self.generated_prompt_text.delete("1.0", tk.END)
             self.generated_prompt_text.insert("1.0", full_prompt)
+
+            # --- 修正：同步左侧选择器 ---
+            # 按 PROMPT_KEY_ORDER 顺序逐步解析 key
+            key_order = self.PROMPT_KEY_ORDER
+            parts = []
+            remain = key
+            for cat in key_order:
+                if cat == self.EXTRA_CATEGORY:
+                    # extra 是最后一项，直接全部剩余
+                    parts.append(remain)
+                else:
+                    # 取第一个 '-' 前的内容
+                    if '-' in remain:
+                        val, remain = remain.split('-', 1)
+                    else:
+                        val, remain = remain, ''
+                    parts.append(val)
+
+            for idx, cat in enumerate(key_order):
+                if cat == self.EXTRA_CATEGORY:
+                    self.extra_listbox.selection_clear(0, tk.END)
+                    extra_key = parts[idx]
+                    if extra_key:
+                        extras = extra_key.split("-")
+                        for extra in extras:
+                            for i, p in enumerate(self.prompt_presets[cat]):
+                                if p["name"] == extra:
+                                    self.extra_listbox.selection_set(i)
+                else:
+                    name = parts[idx]
+                    if name in [p["name"] for p in self.prompt_presets[cat]]:
+                        self.prompt_vars[cat].set(name)
+                        self.on_prompt_selected(None, cat)
 
     def send_selected_prompt(self):
         """将选中的prompt发送到ComfyUI（支持多选）。"""
